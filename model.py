@@ -13,7 +13,7 @@ class model(Dataset):
     def __init__(self, ckpt_dir='./checkpoint', ckpt_name='model', mapFile='map.txt',
             batch_size=30, margin=10., learning_rate=0.001, momentum=0.9, sketch_train_list=None,weightFile=None,returnDir=None,
             sketch_test_list=None, shape_list=None, num_views=20, num_views_sketch=20, num_views_shape=20, class_num=90, normFlag=0,
-            logdir=None, lossType='contrastiveLoss', activationType='relu', phase='train', inputFeaSize=4096, outputFeaSize=100, maxiter=100000):
+            logdir=None, phase='train', inputFeaSize=4096, outputFeaSize=100, maxiter=100000):
 
         self.ckpt_dir           =       ckpt_dir
         self.ckpt_name          =       ckpt_name
@@ -235,8 +235,7 @@ class model(Dataset):
                 sketch_fea_2, sketch_label_2 = self.nextBatch(self.batch_size, 'sketch_train')
                 shape_fea_2, shape_label_2 = self.nextBatch(self.batch_size, 'shape')
 
-                if self.lossType == 'weightedFeaContrastiveLoss':
-                    _, loss_, loss_sum_, sketch_fea, shape_fea, simLabel_sketch, simLabel_shape, simLabel_cross_1, simLabel_cross_2 = sess.run([self.optim, self.loss, self.loss_summary, self.sketch_1, self.shape_1, self.simLabel_sketch, self.simLabel_shape, self.simLabel_cross_1, self.simLabel_cross_2], feed_dict={
+                _, loss_, loss_sum_, sketch_fea, shape_fea, simLabel_sketch, simLabel_shape, simLabel_cross_1, simLabel_cross_2 = sess.run([self.optim, self.loss, self.loss_summary, self.sketch_1, self.shape_1, self.simLabel_sketch, self.simLabel_shape, self.simLabel_cross_1, self.simLabel_cross_2], feed_dict={
                             self.input_sketch_fea_1: sketch_fea_1,
                             self.input_sketch_label_1: sketch_label_1,
                             self.input_sketch_fea_2: sketch_fea_2,
