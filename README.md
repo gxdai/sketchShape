@@ -3,7 +3,7 @@ This code implements the tasks for sketch-based 3D shape trieval
 
 ## Method
 The methods are divided into sevaral steps:
-* **Multiview renderding**. The shape are rendered on 12 different views [1]. <img src="./figure/mvcnn.png" alt="multiview rendering" width="350">
+* **Multiview renderding**. The shape are rendered on 12 different views. <img src="./figure/mvcnn.png" alt="multiview rendering" width="350">
 * **Finetune**.  The sketches and rendered shape images are finetuned with **AlexNet** as single image classification task. The finetuned features for both shrec13 and shrec14 could be downloaded as follows:
     ```
     chmod +x download.sh
