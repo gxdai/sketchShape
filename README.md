@@ -14,12 +14,12 @@ The methods are divided into sevaral steps:
 ## Training
 ### Training on shrec13
 ```
-chmod +x train13.sh
+chmod u+x train13.sh
 ./train13.sh
 ```
 
 ### Training on shrec14
 ```
-chmod +x train14.sh
+chmod u+x train14.sh
 ./train14.sh
 ```
